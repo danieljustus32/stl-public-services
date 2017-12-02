@@ -18,4 +18,11 @@ RSpec.describe StlPublicServices::CliController do
 			controller.start
 		end
 	end
+
+	describe "#welcome_user" do
+		it "says something nice to the user" do
+			expect(:puts).to have_been_called
+			controller.welcome_user
+		end
+	end
 end
