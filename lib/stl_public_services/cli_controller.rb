@@ -1,0 +1,3 @@
+class StlPublicServices::CliController
+
+end
