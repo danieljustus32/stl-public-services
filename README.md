@@ -1,8 +1,6 @@
 # StlPublicServices
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/stl_public_services`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem was created for The Flatiron School's Online Developer Bootcamp curriculum as a portfolio project. It allows the user to obtain data scraped from https://www.stlouis-mo.gov/government/departments/, and lists contact info for each branch of the city government, including public services such as Animal Control, Housing and Urban Development, etc. 
 
 ## Installation
 
