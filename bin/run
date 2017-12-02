@@ -1,0 +1,3 @@
+#! usr/bin/env bash
+
+StlPublicServices::CliController.new.call
