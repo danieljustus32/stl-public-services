@@ -5,23 +5,21 @@ RSpec.describe StlPublicServices::CliController do
 
 	describe "#call" do
 		it "starts the command-line interface" do 
-			expect(controller.start).to have_been_called
+			expect(controller).to receive(:start)
 			controller.call
 		end
 	end
 
 	describe "#start" do 
-		it "calls welcome user and asks for input" do
-			expect(controller.welcome_user).to have_been_called
-			controller.stub!(:gets) {"1"}
-			expect(controller).to have_received(:puts).with("1")
+		it "calls welcome user" do
+			expect(controller).to receive(:welcome_user)
 			controller.start
 		end
 	end
 
 	describe "#welcome_user" do
 		it "says something nice to the user" do
-			expect(:puts).to have_been_called
+			expect($stdout).to receive(:puts).with any_args
 			controller.welcome_user
 		end
 	end
