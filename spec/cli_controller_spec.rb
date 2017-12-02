@@ -23,4 +23,11 @@ RSpec.describe StlPublicServices::CliController do
 			controller.welcome_user
 		end
 	end
+
+	describe "#goodbye" do 
+		it "Thanks the user and says goodbye" do 
+			expect($stdout).to receive(:puts).with any_args
+			controller.goodbye
+		end
+	end
 end
