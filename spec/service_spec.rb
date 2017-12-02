@@ -17,4 +17,12 @@ RSpec.describe StlPublicServices::Service do
 			StlPublicServices::Service.all
 		end
 	end
+
+	describe "#save" do
+		it "adds this instance to the @@all array" do
+			service.save
+			expect(service.class.all.size).to not_eq(0)
+			service.class.all.size
+		end
+	end
 end
