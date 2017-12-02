@@ -10,4 +10,11 @@ RSpec.describe StlPublicServices::Service do
 			service.instance_variable_get(:@name)
 		end 
 	end
+
+	describe ".all" do
+		it "returns the value of @@all" do
+			expect(StlPublicServices::Service.all).to be_kind_of(Array)
+			StlPublicServices::Service.all
+		end
+	end
 end
