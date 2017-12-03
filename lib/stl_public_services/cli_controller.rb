@@ -9,9 +9,13 @@ class StlPublicServices::CliController
 	def start
 		welcome_user
 		user_input = gets.strip
-		case user_input
+		case user_input.downcase
 		when "exit"
 			goodbye
+		when "list"
+			list_all_services
+		when /^[a-z]$/
+			list_services_by_letter
 		else
 			puts <<-INVALID.gsub /^\s+/, ""
 				Sorry, that doesn't look like a valid selection.
