@@ -14,7 +14,7 @@ RSpec.describe StlPublicServices::CliController do
 
 	describe "#start" do
 		
-		context "if user types 'exit',"
+		context "when user types 'exit',"
 		
 		before do
 			allow($stdout).to receive(:puts)
@@ -26,7 +26,7 @@ RSpec.describe StlPublicServices::CliController do
 			controller.start
 		end
 
-		context "if user types 'list'"
+		context "when user types 'list'"
 
 		before do 
 			allow($stdout).to receive(:puts)
@@ -35,6 +35,18 @@ RSpec.describe StlPublicServices::CliController do
 
 		it "calls #list_all_services" do
 			expect(controller).to receive(:list_all_services)
+			controller.start
+		end
+
+		context "when user types a single letter"
+
+		before do 
+			allow($stdout).to receive(:puts)
+			expect(controller).to receive(:gets) {"a"}
+		end
+
+		it "calls #list_services_by_letter" do
+			expect(controller).to receive(:list_services_by_letter)
 			controller.start
 		end
 	
