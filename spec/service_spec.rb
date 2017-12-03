@@ -21,7 +21,7 @@ RSpec.describe StlPublicServices::Service do
 	describe "#save" do
 		it "adds this instance to the @@all array" do
 			service.save
-			expect(service.class.all.size).to not_eq(0)
+			expect(service.class.all.size).not_to eq(0)
 			service.class.all.size
 		end
 	end
