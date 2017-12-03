@@ -33,7 +33,7 @@ RSpec.describe StlPublicServices::CliController do
 			expect(controller).to receive(:gets) {"list"}
 		end
 
-		it "calls #list_all_services"
+		it "calls #list_all_services" do
 			expect(controller).to receive(:list_all_services)
 			controller.start
 		end
