@@ -19,4 +19,12 @@ class StlPublicServices::CliController
 			"exit".
 		WELCOME
 	end
+
+	def goodbye
+		puts <<-GOODBYE.gsub /^\s+/, ""
+			Thanks for using this gem! If you'd like to 
+			report a bug or contribute, check out the 
+			GitHub repo listed in the README.
+		GOODBYE
+	end
 end
