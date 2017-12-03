@@ -10,7 +10,8 @@ class StlPublicServices::Scraper
 	end
 
 	def scrape_service_info(url)
-		doc = Nokogiri::HTML(url)
+		html = open(url)
+		doc = Nokogiri::HTML(html)
 		binding.pry
 	end
 end
