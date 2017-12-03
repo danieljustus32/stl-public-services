@@ -1,7 +1,7 @@
 require 'nokogiri'
 require 'pry'
 
-class Scraper
+class StlPublicServices::Scraper
 
 	attr_accessor :url
 
