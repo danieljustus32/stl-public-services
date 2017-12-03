@@ -8,6 +8,19 @@ class StlPublicServices::CliController
 
 	def start
 		welcome_user
+		user_input = gets.strip
+		case user_input
+		when "exit"
+			goodbye
+		else
+			puts <<-INVALID.gsub /^\s+/, ""
+				Sorry, that doesn't look like a valid selection.
+				Starting over...
+			INVALID
+			sleep(3)
+			puts ""
+			StlPublicServices::CliController.new.call
+		end
 	end
 
 	def welcome_user
