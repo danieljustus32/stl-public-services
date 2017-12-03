@@ -10,9 +10,13 @@ RSpec.describe StlPublicServices::CliController do
 		end
 	end
 
-	describe "#start" do 
+	describe "#start" do
+		before do
+			allow($stdout).to receive(:puts)
+			expect(controller).to receive(:gets) {"exit"}
+		end
 		it "calls welcome user" do
-			expect(controller).to receive(:welcome_user)
+		  expect(controller).to receive(:welcome_user)
 			controller.start
 		end
 	end
