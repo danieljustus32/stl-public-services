@@ -10,8 +10,11 @@ class StlPublicServices::Scraper
 	end
 
 	def scrape_service_info(url)
-		html = open(url)
-		doc = Nokogiri::HTML(html)
+		doc = Nokogiri::HTML(open(url))
+		a = doc.css('h4 a').map do |listing|
+			name = listing.text
+			url = listing['href']
+		end
 		binding.pry
 	end
 end
