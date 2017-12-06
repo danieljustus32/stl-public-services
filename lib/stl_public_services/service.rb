@@ -36,11 +36,7 @@ class Service
 		i = 1
 		puts "#{letter.upcase}"
 		puts "------------------------------------"
-		self.all.each do |service|
-			if service.name.start_with?(letter.upcase)
-				puts "#{i}) #{service.name}"
-				i += 1
-		end
-		end
+		a = self.all.detect { |service| service.name.start_with?(letter.upcase) }
+		binding.pry
 	end
 end

@@ -53,8 +53,9 @@ RSpec.describe Service do
 
 		it "takes input from Scraper class and creates services with it" do
 
+			service.class.all.clear
 			service.class.create_services(url)
-			expect(service.class.all.size).to eq(95)
+			expect(service.class.all.size).to eq(94)
 
 		end
 
@@ -64,7 +65,7 @@ RSpec.describe Service do
 
 		it "lists the name of each service" do
 			
-			expect($stdout).to receive(:puts).exactly(95).times.with any_args
+			expect($stdout).to receive(:puts).exactly(94).times.with any_args
 			service.class.list_all_services
 
 		end
