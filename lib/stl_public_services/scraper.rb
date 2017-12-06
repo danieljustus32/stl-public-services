@@ -17,12 +17,16 @@ class StlPublicServices::Scraper
 		html.css('h4 a').each do |title|
 			name = title.text.to_sym
 			url = title.attribute('href').text
-			phone, fax = title.ancestors[1].children[3].text.scan(/\W\d{3}\W.+/)
+			phone, fax = title.ancestors[1].children[3].text.scan(/\(\d{3}\).+/)
+			address = title.ancestors[1].children[3].text.scan(/\d{2,6}\s[A-z].+/).join
 			services[name] = {
 				:name => name.to_s,
-				:url => url
+				:url => url,
+				:phone => phone,
+				:fax => fax,
+				:address => address
 			}
-			binding.pry
 		end
+		services
 	end
 end
