@@ -31,4 +31,15 @@ class Service
 			i += 1
 		end
 	end
+
+	def self.list_all_services_by_letter(letter)
+		puts "#{letter.upcase}"
+		puts "------------------------------------"
+		self.all.each do |service|
+			if service.name.start_with?(letter.upcase)
+				binding.pry
+				puts service.name
+		end
+		end
+	end
 end
