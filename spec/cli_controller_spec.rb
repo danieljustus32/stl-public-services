@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-RSpec.describe StlPublicServices::CliController do 
-	let(:controller) { StlPublicServices::CliController.new}
+RSpec.describe CliController do 
+	let(:controller) { CliController.new }
 
 	describe "#call" do
 		

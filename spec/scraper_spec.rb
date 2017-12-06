@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-RSpec.describe StlPublicServices::Scraper do
+RSpec.describe Scraper do
 	
-	let (:scraper) { StlPublicServices::Scraper.new('./fixtures/target_site.html') }
+	let (:scraper) { Scraper.new('./fixtures/target_site.html') }
 	let (:url) { scraper.url}
 
 	describe "scrape_service_info" do

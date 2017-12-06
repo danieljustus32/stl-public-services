@@ -5,5 +5,3 @@ require "./lib/stl_public_services/service"
 
 require 'pry'
 
-module StlPublicServices
-end

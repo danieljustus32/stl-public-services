@@ -1,9 +1,11 @@
 require 'spec_helper'
 require 'pry'
 
-RSpec.describe StlPublicServices::Service do
+RSpec.describe Service do
 	
-	let(:service) { StlPublicServices::Service.new({:name => "Affordable Housing Commission", :phone => "(314) 657-3880", :fax => "(314) 613-7015", :address => "1520 Market Street", :url => "https://www.stlouis-mo.gov/government/departments/affordable-housing/index.cfm"}) }
+	let(:service) { Service.new({:name => "Affordable Housing Commission", :phone => "(314) 657-3880", :fax => "(314) 613-7015", :address => "1520 Market Street", :url => "https://www.stlouis-mo.gov/government/departments/affordable-housing/index.cfm"}) }
+	let(:url) { './fixtures/target_site.html'}
+
 
 	describe "#initialize" do
 		
@@ -47,10 +49,15 @@ RSpec.describe StlPublicServices::Service do
 	
 	end
 
-	describe "self.create_services"
+	describe ".create_services" do
 
-		it "takes input from Scraper class and creates services with it"
+		it "takes input from Scraper class and creates services with it" do
 
-			service.class.create_services
+			service.class.create_services(url)
 			expect(service.class.all.size).to eq(94)
+
+		end
+
+	end
+
 end
