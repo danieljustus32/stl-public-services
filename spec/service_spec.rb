@@ -65,7 +65,15 @@ RSpec.describe StlPublicServices::Service do
 				expect(service.class.find_or_create_by_name("Brightside St. Louis")).to be_an_instance_of(StlPublicServices::Service)
 
 			end
-	
+
+			it "saves the new service" do 
+
+				service.class.all.clear
+				service.class.find_or_create_by_name("City Justice Center")
+				expect(service.class.all.size).to eq("1")
+
+			end
+			
 	end
 
 end
