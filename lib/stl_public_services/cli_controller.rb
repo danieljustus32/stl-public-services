@@ -10,13 +10,14 @@ class CliController
 	def start
 		welcome_user
 		user_input = gets.strip
+		Service.create_services('./fixtures/target_site.html')
 		case user_input.downcase
 		when "exit"
 			goodbye
 		when "list"
-			list_all_services
+			Service.list_all_services
 		when /^[a-z]$/
-			list_services_by_letter
+			Service.list_all_services_by_letter(user_input)
 		else
 			puts <<-INVALID.gsub /^\s+/, ""
 				Sorry, that doesn't look like a valid selection.
@@ -24,7 +25,7 @@ class CliController
 			INVALID
 			sleep(3)
 			puts ""
-			StlPublicServices::CliController.new.call
+			self.new.call
 		end
 	end
 

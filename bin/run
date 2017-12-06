@@ -2,4 +2,4 @@
 
 require './lib/stl_public_services'
 
-StlPublicServices::CliController.new.call
+CliController.new.call
