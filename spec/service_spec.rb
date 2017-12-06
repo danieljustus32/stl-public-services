@@ -54,7 +54,7 @@ RSpec.describe Service do
 		it "takes input from Scraper class and creates services with it" do
 
 			service.class.create_services(url)
-			expect(service.class.all.size).to eq(94)
+			expect(service.class.all.size).to eq(95)
 
 		end
 
