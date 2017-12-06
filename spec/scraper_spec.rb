@@ -11,7 +11,5 @@ RSpec.describe StlPublicServices::Scraper do
 			expect(scraper.scrape_service_info(url)[0]).to be_a_kind_of(Hash)
 			scraper.scrape_service_info(url)
 		end
-
 	end
-
 end
