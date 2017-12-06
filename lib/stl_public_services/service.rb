@@ -26,7 +26,7 @@ class Service
 
 	def self.list_all_services
 		self.all.each do |service|
-			i = 0
+			i = 1
 			puts "#{i}) #{service.name}"
 			i += 1
 		end
