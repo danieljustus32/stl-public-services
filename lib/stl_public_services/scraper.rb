@@ -14,11 +14,12 @@ class StlPublicServices::Scraper
 
 		services = {}
 
-		html.css('div.col-md-8 div').each do |listing|
-			service_names = listing.css('h4 a').text
-			urls = listing.css('a').attribute('href').value
-			phone = listing.css('div:nth-child(1)').text.scan(/P\S+\s\S+\s\S+/).join.gsub "Phone: ", ""
-			fax = listing.css('div:nth-child(1)').text.scan(/F\S+\s\S+\s\S+/).join.gsub "Fax: ", ""
+		html.css('h4 a').each do |title|
+			name = title.text.to_sym
+			services[name] = {
+				:name => name.to_s,
+				:url => title.attribute('href').text
+			}
 			binding.pry
 		end
 	end
