@@ -28,8 +28,8 @@ RSpec.describe StlPublicServices::Service do
 		
 		it "returns the value of @@all" do
 			
-			expect(StlPublicServices::Service.all).to be_kind_of(Array)
-			StlPublicServices::Service.all
+			expect(service.class.all).to be_kind_of(Array)
+			service.class.all
 		
 		end
 	
@@ -47,11 +47,13 @@ RSpec.describe StlPublicServices::Service do
 	
 	end
 
-	describe "#find_or_create_by_name" do
+	describe ".find_or_create_by_name" do
 		
-		context "service already exists"
-		
-		it 
+		context "if the service already exists"
+
+			it "returns an instance of the service" do
+
+				expect(service.class.find_or_create_by_name(service.name)).to equal(service)
 		
 		end
 	
