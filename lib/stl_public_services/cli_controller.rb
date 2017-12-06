@@ -16,8 +16,12 @@ class CliController
 			goodbye
 		when "list"
 			Service.list_all_services
+			puts ""
+			service_number = which_service
 		when /^[a-z]$/
 			Service.list_all_services_by_letter(user_input)
+			puts ""
+			which_service
 		else
 			puts <<-INVALID.gsub /^\s+/, ""
 				Sorry, that doesn't look like a valid selection.
@@ -45,5 +49,14 @@ class CliController
 			report a bug or contribute, check out the 
 			GitHub repo listed in the README.
 		GOODBYE
+	end
+
+	def which_service
+		puts <<-WHICH.gsub /^\s+/, ""
+			Enter the number of a service to view contact
+			info for that service:
+		WHICH
+		puts ""
+		return gets.strip
 	end
 end
