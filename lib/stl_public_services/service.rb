@@ -15,7 +15,7 @@ class StlPublicServices::Service
 		@@all << self
 	end
 
-	def self.find_or_create_by_name(name)
+	def self.create_services
 
 	end
 end

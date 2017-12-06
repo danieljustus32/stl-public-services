@@ -1,3 +1,4 @@
+require './lib/stl_public_services'
 require 'pry'
 
 class StlPublicServices::CliController

@@ -47,4 +47,10 @@ RSpec.describe StlPublicServices::Service do
 	
 	end
 
+	describe "self.create_services"
+
+		it "takes input from Scraper class and creates services with it"
+
+			service.class.create_services
+			expect(service.class.all.size).to eq(94)
 end
