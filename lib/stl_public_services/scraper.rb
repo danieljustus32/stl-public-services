@@ -12,20 +12,21 @@ class StlPublicServices::Scraper
 	def scrape_service_info(url)
 		html = Nokogiri::HTML(open(url))
 
-		services = {}
+		services =[]
 
 		html.css('h4 a').each do |title|
-			name = title.text.to_sym
+			name = title.text
 			url = title.attribute('href').text
 			phone, fax = title.ancestors[1].children[3].text.scan(/\(\d{3}\).+/)
 			address = title.ancestors[1].children[3].text.scan(/\d{2,6}\s[A-z].+/).join
-			services[name] = {
-				:name => name.to_s,
+			attrs = {
+				:name => name,
 				:url => url,
 				:phone => phone,
 				:fax => fax,
 				:address => address
 			}
+			services <<	attrs
 		end
 		services
 	end
