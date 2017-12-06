@@ -36,7 +36,12 @@ class Service
 		i = 1
 		puts "#{letter.upcase}"
 		puts "------------------------------------"
-		a = self.all.detect { |service| service.name.start_with?(letter.upcase) }
+		arr = self.all.select { |service| service.name.start_with?(letter.upcase) }
+		arr.each do | service |
+			puts "#{i}) #{service.name}"
+			i += 1
+		end
 		binding.pry
+		arr
 	end
 end
