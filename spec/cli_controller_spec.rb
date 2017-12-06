@@ -35,14 +35,11 @@ RSpec.describe CliController do
 	
 	end
 
-	describe "#list_all_services" do
-
-		before do 
-			allow($stdout).to receive(:puts)
-			expect(controller).to receive(:gets) {"list"}
-		end
+	describe "#list_all_services" do 
 
 		it "runs when user types 'list'" do
+			allow($stdout).to receive(:puts)
+			allow(controller).to receive(:gets).at_least(:once).and_return("list")
 			expect(controller).to receive(:list_all_services)
 			controller.start
 		end
@@ -53,7 +50,7 @@ RSpec.describe CliController do
 
 		before do 
 			allow($stdout).to receive(:puts)
-			expect(controller).to receive(:gets) {"a"}
+			allow(controller).to receive(:gets) {"a"}
 		end
 
 		it "runs when user types a single letter" do

@@ -41,7 +41,19 @@ class Service
 			puts "#{i}) #{service.name}"
 			i += 1
 		end
-		binding.pry
 		arr
+	end
+
+	def self.contact_info(service)
+		divider = "-------------------------------------------------"
+		puts "Name:   | #{service.name}"
+		puts divider
+		puts "Phone:  | #{service.phone}"
+		puts divider
+		puts "Fax:    | #{service.fax}"
+		puts divider
+		puts "Address:| #{service.address}"
+		puts divider
+		puts "Url:    | #{service.url}"
 	end
 end

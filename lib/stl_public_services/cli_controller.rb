@@ -17,7 +17,8 @@ class CliController
 		when "list"
 			Service.list_all_services
 			puts ""
-			service_number = which_service
+			service_number = which_service.to_i + 1
+			Service.contact_info(Service.all[service_number])
 		when /^[a-z]$/
 			Service.list_all_services_by_letter(user_input)
 			puts ""
