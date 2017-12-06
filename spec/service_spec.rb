@@ -54,8 +54,17 @@ RSpec.describe StlPublicServices::Service do
 			it "returns an instance of the service" do
 
 				expect(service.class.find_or_create_by_name(service.name)).to equal(service)
-		
-		end
+			
+			end
+
+		context "if the service doesn't exist"
+
+			it "creates a new service" do
+
+				expect(service.class.find_or_create_by_name("Brightside St. Louis")).not_to equal(service || nil)
+				expect(service.class.find_or_create_by_name("Brightside St. Louis")).to be_an_instance_of(StlPublicServices::Service)
+
+			end
 	
 	end
 
