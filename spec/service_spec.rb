@@ -71,4 +71,15 @@ RSpec.describe Service do
 
 	end
 
+	describe ".list_all_services_by_letter" do
+
+		it "lists all the services starting with input letter" do
+
+			expect($stdout).to receive(:puts).exactly(3).times.with any_args
+			service.class.list_all_services_by_letter
+
+		end
+
+	end
+
 end
