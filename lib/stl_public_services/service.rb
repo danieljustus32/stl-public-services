@@ -24,7 +24,7 @@ class Service
 		end
 	end
 
-	def self.list_all_services_by_letter
+	def self.list_all_services
 		self.all.each do |service|
 			i = 0
 			puts "#{i}) #{service.name}"

@@ -60,4 +60,15 @@ RSpec.describe Service do
 
 	end
 
+	describe ".list_all_services" do 
+
+		it "lists the name of each service" do
+
+			expect($stdout).to receive(:puts).with("1) Affordable Housing Commission")
+			service.class.list_all_services
+
+		end
+
+	end
+	
 end
